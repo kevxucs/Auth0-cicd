@@ -1,24 +1,28 @@
 name: Test and Deploy to Auth0
 on: push
+defaults:
+  run: 
+    working-directory: ./src
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: "12"
-      - name: NPM Install
-        run: npm install
-      - name: Run Jest
-        run: npm test
-      - name: Run Lint
-        run: npm run lint
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2-beta
+  #       with:
+  #         node-version: "12"
+  #     - name: NPM Install
+  #       run: npm install
+  #     - name: Run Jest
+  #       run: npm test
+  #     - name: Run Lint
+  #       run: npm run lint
   deploy:
     runs-on: ubuntu-latest
+    
     if: github.ref == 'refs/heads/master'
-    needs:
-      - build
+    # needs:
+    #   - build
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
