@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: "12"
       - name: NPM Install
-        run: npm install
+        run: npm i -g auth0-deploy-cli
       - name: Push to Auth0
         # env:
         #   AUTH0_DOMAIN: ${{secrets.AUTH0_DOMAIN}}
