@@ -27,8 +27,8 @@ jobs:
       - name: NPM Install
         run: npm install
       - name: Push to Auth0
-        env:
-          AUTH0_DOMAIN: ${{secrets.AUTH0_DOMAIN}}
-          AUTH0_CLIENT_SECRET: ${{secrets.AUTH0_CLIENT_SECRET}}
-          AUTH0_CLIENT_ID: ${{secrets.AUTH0_CLIENT_ID}}
+        # env:
+        #   AUTH0_DOMAIN: ${{secrets.AUTH0_DOMAIN}}
+        #   AUTH0_CLIENT_SECRET: ${{secrets.AUTH0_CLIENT_SECRET}}
+        #   AUTH0_CLIENT_ID: ${{secrets.AUTH0_CLIENT_ID}}
         run: npm run deploy
