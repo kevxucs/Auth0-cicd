@@ -1,8 +1,5 @@
 name: Test and Deploy to Auth0
 on: push
-defaults:
-  run: 
-    working-directory: ./src
 jobs:
   # build:
   #   runs-on: ubuntu-latest
@@ -29,13 +26,13 @@ jobs:
         with:
           node-version: "12"
       - name: NPM Install
-        run: npm i -g auth0-deploy-cli
+        run: npm install
       - name: Push to Auth0
         # env:
         #   AUTH0_DOMAIN: ${{secrets.AUTH0_DOMAIN}}
         #   AUTH0_CLIENT_SECRET: ${{secrets.AUTH0_CLIENT_SECRET}}
         #   AUTH0_CLIENT_ID: ${{secrets.AUTH0_CLIENT_ID}}
-        run: a0deploy import -c ./config.json -i ./src/tenant.yaml
+        run: ls
         # run: cd ..
         # run: pwd
         # run: npm run deploy
