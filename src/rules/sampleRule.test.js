@@ -1,6 +1,6 @@
 const sampleRule = require("./sampleRule.js");
 describe(sampleRule, () => {
-  it("should pass return null as error!", () => {
+  it("should pass return null as error! Please check.", () => {
     expect.hasAssertions();
     const context = {
       request: {
