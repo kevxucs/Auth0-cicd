@@ -17,6 +17,7 @@ jobs:
       run: npm i -g auth0-deploy-cli    
     - name: Create local changes
       run: |
+        rm -rf ./src/test 
         a0deploy export --config_file config.json --format directory --output_folder ./src/test
     - name: Commit files
       run: |
