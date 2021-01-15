@@ -1,0 +1,48 @@
+name: Test and Deploy to Auth0
+on: 
+  push:
+    paths: 'src/rules/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: "12"
+    - name: NPM Install
+        run: npm i -g auth0-deploy-cli    
+    - name: Create local changes
+      run: a0deploy export --config_file config.json --format yaml --output_folder ./src/test/tenant.yaml
+    - name: Commit files
+      run: |
+        git config --local user.email "kevxu@my.yorku.ca"
+        git config --local user.name "Kai Xu"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+  # deploy:
+  #   runs-on: ubuntu-latest
+    
+  #   if: github.ref == 'refs/heads/master'
+  #   # needs:
+  #   #   - build
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2-beta
+  #       with:
+  #         node-version: "12"
+  #     - name: NPM Install
+  #       run: npm i -g auth0-deploy-cli
+  #     - name: Push to Auth0
+  #       # env:
+  #       #   AUTH0_DOMAIN: ${{secrets.AUTH0_DOMAIN}}
+  #       #   AUTH0_CLIENT_SECRET: ${{secrets.AUTH0_CLIENT_SECRET}}
+  #       #   AUTH0_CLIENT_ID: ${{secrets.AUTH0_CLIENT_ID}}
+  #       run: a0deploy import -c config.json -i ./src/tenant.yaml
