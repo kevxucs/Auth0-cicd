@@ -21,6 +21,7 @@ jobs:
         a0deploy export --config_file config.json --format directory --output_folder ./src/test
     - name: Commit files
       run: |
+        echo ${{ github.ref }}
         git config --local user.email "kevxu@my.yorku.ca"
         git config --local user.name "Kai Xu"
         git add .
