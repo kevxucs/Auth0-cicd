@@ -17,9 +17,7 @@ jobs:
       run: npm i -g auth0-deploy-cli    
     - name: Create local changes
       run: |
-        rm ./src/test/*
-        a0deploy export --config_file config.json --format yaml --output_folder ./src/test/tenant.yaml
-    - name: Commit files
+        a0deploy export --config_file config.json --format directory --output_folder ./src/test
       run: |
         git config --local user.email "kevxu@my.yorku.ca"
         git config --local user.name "Kai Xu"
