@@ -25,11 +25,12 @@ jobs:
         git config --local user.name "Kai Xu"
         git add .
         git commit -m "Add changes" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+    if: github.ref != 'refs/heads/master'
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
   # deploy:
   #   runs-on: ubuntu-latest
     
