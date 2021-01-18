@@ -2,7 +2,7 @@ name: Test and Deploy to prod Auth0
 on: 
   # pull_request:
   #   branch: [ master ]
-  push
+  push:
     paths: "src/prod/**"
 jobs:
   build:
