@@ -2,8 +2,8 @@ name: Test and Deploy to dev Auth0
 on: 
   push:
     branches:
-    - "!master"
-    - "!development"
+    - '!master'
+    - '!development'
     paths: "src/prod/**"
 jobs:
   build:

@@ -5,8 +5,8 @@ on:
   #   types: [ closed ]
   push:
     branches:
-    - "!master"
-    - "!development"
+    - '!master'
+    - '!development'
     paths: "src/dev/**"
 jobs:
   build:
