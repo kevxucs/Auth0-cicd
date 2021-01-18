@@ -1,9 +1,13 @@
 name: Test and Deploy to prod Auth0
 on: 
-  pull_request:
-    branches: [ master ]
-    types: [ closed ]
-    paths: "src/prod/**"
+  # pull_request:
+  #   branches: [ master ]
+  #   types: [ closed ]
+  push:
+    branches:
+    - "!master"
+    - "!development"
+    paths: "src/dev/**"
 jobs:
   build:
     runs-on: ubuntu-latest
