@@ -1,7 +1,7 @@
 name: Test and Deploy to dev Auth0
 on: 
-  pull_request:
-    paths: "src/rules/**"
+  push:
+    paths: "src/dev/**"
 jobs:
   build:
     runs-on: ubuntu-latest
