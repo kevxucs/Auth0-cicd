@@ -1,6 +1,7 @@
-name: Test and Deploy to dev Auth0
+name: Test and Deploy to prod Auth0
 on: 
-  push:
+  pull_request:
+    branch: [ master ]
     paths: "src/rules/**"
 jobs:
   build:
@@ -17,7 +18,7 @@ jobs:
       run: npm i -g auth0-deploy-cli    
     - name: Create local changes
       run: |
-        a0deploy export --config_file ./src/dev/config.json --format directory --output_folder ./src/test
+        a0deploy export --config_file ./src/prod/config.json --format directory --output_folder ./src/test-prod
     - name: Commit files
       run: |
         echo ${{ github.ref }}
@@ -30,4 +31,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
- 
