@@ -1,13 +1,13 @@
 name: Test and Deploy to dev Auth0
 on: 
   push:
-    branches:
-    - '!master'
-    - '!development'
     paths: "src/prod/**"
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: |
+      github.ref != "refs/heads/master" &&
+      github.ref != "refs/heads/development"
     steps:
     - uses: actions/checkout@v2
       with:
