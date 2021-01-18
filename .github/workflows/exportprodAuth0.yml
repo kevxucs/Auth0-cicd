@@ -4,13 +4,11 @@ on:
   #   branches: [ master ]
   #   types: [ closed ]
   push:
-    branches:
-    - "!master"
-    - "!development"
     paths: "src/dev/**"
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/development'
     steps:
     - uses: actions/checkout@v2
       with:
