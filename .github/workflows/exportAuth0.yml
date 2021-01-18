@@ -1,5 +1,6 @@
 name: Test and Deploy to dev Auth0
 on: 
+  pull_request:
   push:
     paths: "src/rules/**"
 jobs:
