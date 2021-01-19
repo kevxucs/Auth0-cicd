@@ -4,7 +4,9 @@ on:
   #   branches: [ master ]
   #   types: [ closed ]
   push:
-    paths: [ src/dev/**, src/prod/** ]
+    paths: 
+      - 'src/dev/**' 
+      - 'src/prod/**'
 jobs:
   build:
     runs-on: ubuntu-latest
