@@ -5,8 +5,8 @@ on:
   #   types: [ closed ]
   push:
     paths: 
-      - 'src/dev/**' 
-      - 'src/prod/**'
+    - 'src/dev/**' 
+    - 'src/prod/**'
 jobs:
   build:
     runs-on: ubuntu-latest
