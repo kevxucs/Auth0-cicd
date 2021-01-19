@@ -4,7 +4,9 @@ on:
   #   branches: [ master ]
   #   types: [ closed ]
   push:
-    paths: [ src/dev/**, src/prod/** ]
+    paths: 
+    - 'src/dev/**' 
+    - 'src/prod/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +27,6 @@ jobs:
     - name: Create dev changes
       run: |
         a0deploy export --config_file ./src/dev/config.json --format directory --output_folder ./src/test
-    - name: Commit files
     - name: Commit files
       run: |
         echo ${{ github.ref }}
