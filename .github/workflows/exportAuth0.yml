@@ -1,7 +1,7 @@
 name: Test and Deploy to dev Auth0
 on: 
-  push:
-    paths: "src/prod/**"
+  # push:
+  #   paths: "src/prod/**"
 jobs:
   build:
     runs-on: ubuntu-latest
