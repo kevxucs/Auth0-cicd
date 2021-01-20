@@ -17,10 +17,10 @@ jobs:
       run: npm i -g auth0-deploy-cli    
     - name: Create prod changes
       run: |
-        a0deploy export --config_file ./src/prod/config.json --format directory --output_folder ./src/test-prod
+        a0deploy export --config_file ./src/prod/config.json --format directory --output_folder ./src/test-prod1
     - name: Create dev changes
       run: |
-        a0deploy export --config_file ./src/dev/config.json --format directory --output_folder ./src/test
+        a0deploy export --config_file ./src/dev/config.json --format directory --output_folder ./src/test1
     - name: Commit files
       run: |
         echo ${{ github.ref }}
@@ -32,4 +32,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: github.ref.development
+        branch: development
