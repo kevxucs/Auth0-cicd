@@ -7,7 +7,7 @@ on:
   #   paths: 
   #   - 'src/dev/**' 
   #   - 'src/prod/**'
-  shchedule:
+  schedule:
     - cron: "*/2 * * * *""
 jobs:
   build:
