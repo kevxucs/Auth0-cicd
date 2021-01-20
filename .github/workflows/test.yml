@@ -1,8 +1,9 @@
 name: Test
 on: 
   push:
-  - 'auth0/dev/**'
-  - 'auth0/prod/**'
+    paths:
+    - 'auth0/dev/**'
+    - 'auth0/prod/**'
 jobs:
   build:
     runs-on: ubuntu-latest
