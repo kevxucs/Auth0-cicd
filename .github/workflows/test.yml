@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: git.ref != 'ref/head/master' && git.ref != 'ref/head/development'
+    if: github.ref != 'ref/head/master' && github.ref != 'ref/head/development'
     steps:
     - uses: actions/checkout@v2
       with:
