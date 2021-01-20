@@ -1,9 +1,12 @@
 name: Test
 on: 
   push:
+  - 'auth0/dev/**'
+  - 'auth0/prod/**'
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: git.ref !- 'ref/head/master' && git.ref != 'ref/head/development'
     steps:
     - uses: actions/checkout@v2
       with:
