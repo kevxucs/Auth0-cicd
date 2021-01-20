@@ -1,14 +1,8 @@
 name: Test and Deploy to prod Auth0
-on: 
-  # pull_request:
-  #   branches: [ master ]
-  #   types: [ closed ]
-  # push:
-  #   paths: 
-  #   - 'src/dev/**' 
-  #   - 'src/prod/**'
+on:
   schedule:
-    - cron: '* * * * *'
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '* * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
