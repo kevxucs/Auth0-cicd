@@ -34,8 +34,8 @@ jobs:
         git commit -m "Add changes" -a
         OUTPUT=$(git status --porcelain)
         echo ${{ OUTPUT }}
-    if: OUTPUT != ''
     - name: Push changes
+      if: OUTPUT != ''
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
