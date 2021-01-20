@@ -1,6 +1,6 @@
 (() => {
   function rule(user, context, callback) {
-    // test on dev pull v7
+    // test trigger
     console.log("IMPORT");
     console.log("Context -> ", context);
     console.log(context.request.query.scope);
