@@ -16,7 +16,21 @@ jobs:
       with:
         node-version: "12"
     - name: NPM Install
-      run: npm i -g auth0-deploy-cli    
+      run: npm i -g auth0-deploy-cli
+    - name: remove files
+      run: |
+        rm -rf ./src/test ./src/test-prod
+    - name: Commit files
+      run: |
+        git config --local user.email "kevxu@my.yorku.ca"
+        git config --local user.name "Kai Xu"
+        git add .
+        git commit -m "remove files" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
     - name: Create prod changes
       run: |
         a0deploy export --config_file ./src/prod/config.json --format directory --output_folder ./src/test-prod
