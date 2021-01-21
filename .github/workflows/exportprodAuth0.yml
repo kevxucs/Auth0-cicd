@@ -2,7 +2,7 @@ name: Test and Deploy to prod Auth0
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '*/1 * * * *'
+    - cron:  '*/59 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,8 +18,7 @@ jobs:
     - name: NPM Install
       run: npm i -g auth0-deploy-cli
     - name: remove files
-      run: |
-        rm -rf ./src/test ./src/test-prod
+      run: rm -rf ./src/test ./src/test-prod
     - name: Commit files
       run: |
         git config --local user.email "kevxu@my.yorku.ca"
@@ -30,7 +29,7 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        branch: development
     - name: Create prod changes
       run: |
         a0deploy export --config_file ./src/prod/config.json --format directory --output_folder ./src/test-prod
@@ -48,4 +47,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        branch: development
