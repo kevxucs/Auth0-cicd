@@ -1,7 +1,0 @@
-{
-  "enabled": true,
-  "script": "./sampleRule.js",
-  "name": "sampleRule",
-  "order": 1,
-  "stage": "login_success"
-}
