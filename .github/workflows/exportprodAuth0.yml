@@ -1,6 +1,7 @@
 name: Test and Deploy to prod Auth0
 on:
   push:
+  
   #schedule:
     # * is a special character in YAML so you have to quote this string
     #- cron:  '* * 1 * *'
