@@ -1,7 +1,6 @@
 name: Test and Deploy to prod Auth0
 on:
   push:
-
   #schedule:
     # * is a special character in YAML so you have to quote this string
     #- cron:  '* * 1 * *'
@@ -22,9 +21,9 @@ jobs:
       with:
         node-version: "12"
     - name: NPM Install
-       run: npm i -g auth0-deploy-cli
+      run: npm i -g auth0-deploy-cli
     # - name: remove files
-    #  run: rm -rf ./src/test ./src/test-prod
+    #   run: rm -rf ./src/test ./src/test-prod
     # - name: Commit files
     #   run: |
     #     git config --local user.email "kevxu@my.yorku.ca"
