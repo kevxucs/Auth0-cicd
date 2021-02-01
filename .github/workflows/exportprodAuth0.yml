@@ -44,10 +44,9 @@ jobs:
     - name: check for changes
       run: |
         if git diff --exit-code; then
-          echo "::set-env name=changes_exist::false"
           echo "changes_exist=flase" >> $GITHUB_ENV
         else
-          # echo "changes_exist=true" >> $GITHUB_ENV
+          echo "changes_exist=true" >> $GITHUB_ENV
         fi
     - name: Commit files
       if: ${{ env.changes_exist == 'true' }}
