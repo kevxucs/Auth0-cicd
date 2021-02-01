@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      # env:
+      #   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       with:
         ref: development
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
     - uses: actions/setup-node@v2-beta
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      # env:
+      #   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       with:
         node-version: "12"
     - name: NPM Install
@@ -45,8 +45,9 @@ jobs:
       run: |
         if git diff --exit-code; then
           echo "::set-env name=changes_exist::false"
+          echo "changes_exist=flase" >> $GITHUB_ENV
         else
-          echo "::set-env name=changes_exist::true"
+          # echo "changes_exist=true" >> $GITHUB_ENV
         fi
     - name: Commit files
       if: ${{ env.changes_exist == 'true' }}
