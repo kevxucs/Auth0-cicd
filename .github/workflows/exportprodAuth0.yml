@@ -10,14 +10,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       with:
         ref: development
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
     - uses: actions/setup-node@v2-beta
       env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       with:
         node-version: "12"
     - name: NPM Install
@@ -35,12 +35,12 @@ jobs:
     #   with:
     #     github_token: ${{ secrets.GITHUB_TOKEN }}
     #     branch: development
-    - name: Create prod changes
-      run: |
-        a0deploy export --config_file ./src/prod/config.json --format directory --output_folder ./src/test-prod
-    - name: Create dev changes
-      run: |
-        a0deploy export --config_file ./src/dev/config.json --format directory --output_folder ./src/test
+    # - name: Create prod changes
+    #   run: |
+    #     a0deploy export --config_file ./src/prod/config.json --format directory --output_folder ./src/test-prod
+    # - name: Create dev changes
+    #   run: |
+    #     a0deploy export --config_file ./src/dev/config.json --format directory --output_folder ./src/test
     - name: check for changes
       run: |
         if git diff --exit-code; then
