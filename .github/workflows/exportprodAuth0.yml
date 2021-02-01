@@ -43,7 +43,7 @@ jobs:
         a0deploy export --config_file ./src/dev/config.json --format directory --output_folder ./src/test
     - name: check for changes
       run: |
-        if git diff --exit-code; then
+        if [ -n "$(git status --porcelain)" ]; then
           echo "changes_exist=true" >> $GITHUB_ENV
         else
           echo "changes_exist=false" >> $GITHUB_ENV
