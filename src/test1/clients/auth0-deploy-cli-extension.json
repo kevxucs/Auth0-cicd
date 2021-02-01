@@ -1,4 +1,5 @@
 {
+  
   "is_token_endpoint_ip_header_trusted": false,
   "name": "auth0-deploy-cli-extension",
   "is_first_party": true,
