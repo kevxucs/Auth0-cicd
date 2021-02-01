@@ -1,8 +1,0 @@
-{
-  "enabled_locales": [
-    "en"
-  ],
-  "flags": {
-    "disable_clickjack_protection_headers": false
-  }
-}
