@@ -1,6 +1,5 @@
 {
   "AUTH0_DOMAIN": "test-authdeploy.us.auth0.com",
-  "AUTH0_CLIENT_SECRET": "OB2TCx8pb4IdH8xiNpbWa9ghBF4azC97SQuHfK1NfXlNVGI_pzaxwMUL-Xq9ysCS",
   "AUTH0_CLIENT_ID": "yLrw96LyJu4q6Af7n8G1OanDk7UaWfDn",
   "AUTH0_KEYWORD_REPLACE_MAPPINGS": { "AUTH0_TENANT_NAME": "test-authdeploy.us.auth0.com" },
   "AUTH0_ALLOW_DELETE": true
